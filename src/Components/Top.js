@@ -1,13 +1,17 @@
 import React from 'react';
 
-const Top = ( { title, date} ) => {
+const Card = ( { title, date, url, explanation} ) => {
   
     return (
-        <div>
+        <div >
             <h2>Title: {title}</h2>
             <p>Date: {date}</p>
+            <img src={url} alt="" />
+            <p>Explanation: {explanation}</p>
         </div>
     );
 }
 
-export default Top;
+
+export default Card;
+

@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
 import "./App.css";
 import axios from 'axios';
-import Top from '../src/Components/Top.js';
-import Bottom from '../src/Components/Bottom.js';
+import Card from './Components/Top.js';
+
 
 function App() {
   const [data, setData] = useState([]);
@@ -23,14 +23,13 @@ function App() {
   return (
     <div className="App">
       <h1> Astronomy Picture of the Day </h1>
-          <Top
+          <Card
             title={data.title}
             date={data.date}
-          />
-          <Bottom
             url={data.url}
             explanation={data.explanation}
           />
+          
     </div>
   );
 }
