@@ -1,33 +1,36 @@
 import React, { useState, useEffect } from "react";
 import "./App.css";
 import axios from 'axios';
-//import Title from './Title';
+import Top from '../src/Components/Top.js';
+import Bottom from '../src/Components/Bottom.js';
 
 function App() {
   const [data, setData] = useState([]);
+
   useEffect(() => {
-    const fetchData = () => {
-      axios.get(`https://api.nasa.gov/planetary/apod?api_key=DEMO_KEY&date=2021-12-08`)
+      axios
+      .get(`https://api.nasa.gov/planetary/apod?api_key=DEMO_KEY&date=2021-12-08`)
       .then(resp => {
         console.log(resp);
         setData(resp.data)
-        console.log(data);
+        // console.log(data);
       })
       .catch(err => {
-        debugger
-      })
-    }
-    fetchData()
-  }, [])
+        console.error(err);
+      });
+  }, []);
 
   return (
     <div className="App">
       <h1> Astronomy Picture of the Day </h1>
-      {/* <Title />
-      <Date />
-      <Image />
-      <Explanation /> */}
-
+          <Top
+            title={data.title}
+            date={data.date}
+          />
+          <Bottom
+            url={data.url}
+            explanation={data.explanation}
+          />
     </div>
   );
 }
