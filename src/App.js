@@ -11,7 +11,7 @@ function App() {
   
   useEffect(() => {
       axios
-      .get(`https://api.nasa.gov/planetary/apod?api_key=DEMO_KEY`)
+      .get(`https://api.nasa.gov/planetary/apod?api_key=i0zKAjsy51msX0FniasnLrAZxK6ltTripNkW9wNK`)
       .then(resp => {
         console.log(resp);
         setData(resp.data)
@@ -24,11 +24,10 @@ function App() {
 
   return (
     <div className="App">
-      <h1 className='App-header'> Astronomy Picture of the Day </h1>
+      <h1 className='App-header'> NASA Astronomy Picture of the Day </h1>
           <Top
             title={data.title}
             date={data.date}
-            url={data.url}
             copyright={data.copyright}
           />
           <Bottom
